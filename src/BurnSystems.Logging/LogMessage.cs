@@ -22,6 +22,11 @@
 
         public override string ToString()
         {
+            if (string.IsNullOrEmpty(Category))
+            {
+                return $"[{LogLevel}]: {Message}";
+            }
+
             return $"[{LogLevel}] {Category}: {Message}";
         }
     }

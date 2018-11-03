@@ -64,5 +64,15 @@ namespace BurnSystems.Logging.Tests
 
             Assert.AreEqual(2, inMemoryProvider.Messages.Count);
         }
+
+        [TestMethod]
+        public void TestConsoleLogger()
+        {
+            TheLog.AddProvider(new ConsoleProvider(), LogLevel.Info);
+            _logger.Info("Info");   // will be shown
+            _logger.Trace("Trace"); // will be ignored
+            _logger.Error("Error"); // will be shown
+
+        }
     }
 }

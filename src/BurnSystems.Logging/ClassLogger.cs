@@ -11,9 +11,9 @@ namespace BurnSystems.Logging
             _category = type.FullName;
         }
 
-        public void Log (LogMessage message)
+        public void Log(LogMessage message)
         {
-            if ( string.IsNullOrEmpty(message.Category))
+            if (string.IsNullOrEmpty(message.Category))
             {
                 message.Category = _category;
             }
