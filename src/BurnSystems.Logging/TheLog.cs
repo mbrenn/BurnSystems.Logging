@@ -58,6 +58,11 @@ namespace BurnSystems.Logging
             Log(LogLevel.Error, message, category);
         }
 
+        public static void Debug(string message, string category = null)
+        {
+            Log(LogLevel.Error, message, category);
+        }
+
         public static void AddProvider(ILogProvider logProvider, LogLevel logLevelThreshold)
         {
             Singleton.AddProvider(logProvider, logLevelThreshold);
@@ -66,6 +71,15 @@ namespace BurnSystems.Logging
         public static void ClearProviders()
         {
             Singleton.ClearProviders();
+        }
+
+        /// <summary>
+        /// Gets or sets the filter threshold for the logging
+        /// </summary>
+        public static LogLevel FilterThreshold
+        {
+            get => Singleton.LogLevelThreshold;
+            set => Singleton.LogLevelThreshold = value;
         }
     }
 }

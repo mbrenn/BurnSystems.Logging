@@ -8,12 +8,12 @@ namespace BurnSystems.Logging
         /// <summary>
         /// Stores the list of providers
         /// </summary>
-        private List<ProviderData> _providers = new List<ProviderData>();
+        private readonly List<ProviderData> _providers = new List<ProviderData>();
 
         /// <summary>
         /// Gets or sets the log level threshold for the logging
         /// </summary>
-        public LogLevel LogLevelThreshold { get; set; } = LogLevel.Info;
+        public LogLevel LogLevelThreshold { get; set; } = LogLevel.Trace;
 
         /// <summary>
         /// Adds the provider being used for logging
@@ -45,6 +45,10 @@ namespace BurnSystems.Logging
             Log(message);
         }
 
+        /// <summary>
+        /// Logs the message. All providers within the filter threshold will be notified
+        /// </summary>
+        /// <param name="message"></param>
         public void Log(LogMessage message)
         {
             var logLevelDepth = (int) message.LogLevel;
