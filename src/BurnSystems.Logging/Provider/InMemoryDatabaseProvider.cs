@@ -5,6 +5,11 @@ namespace BurnSystems.Logging.Provider
 {
     public class InMemoryDatabaseProvider : ILogProvider
     {
+        /// <summary>
+        /// Stores a singleton that can be used by simple applications
+        /// </summary>
+        public static InMemoryDatabaseProvider TheOne { get; }= new InMemoryDatabaseProvider();
+        
         private List<InMemoryLogMessage> _messages = 
             new List<InMemoryLogMessage>();
 

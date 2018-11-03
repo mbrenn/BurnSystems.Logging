@@ -2,7 +2,7 @@
 
 namespace BurnSystems.Logging
 {
-    public class ClassLogger
+    public class ClassLogger : ILogger
     {
         private readonly string _category;
 
