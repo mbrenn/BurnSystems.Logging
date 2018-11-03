@@ -11,6 +11,6 @@
         /// Logs the message
         /// </summary>
         /// <param name="logMessage">Message to be logged</param>
-        void AddLog(LogMessage logMessage);
+        void LogMessage(LogMessage logMessage);
     }
 }

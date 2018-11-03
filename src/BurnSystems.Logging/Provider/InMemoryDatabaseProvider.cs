@@ -15,12 +15,23 @@ namespace BurnSystems.Logging.Provider
 
         public void LogMessage(LogMessage logMessage)
         {
-            _messages.Add(
-                new InMemoryLogMessage()
-                {
-                    LogMessage = logMessage,
-                    Created = DateTime.Now
-                });
+            lock (_messages)
+            {
+                _messages.Add(
+                    new InMemoryLogMessage()
+                    {
+                        LogMessage = logMessage,
+                        Created = DateTime.Now
+                    });
+            }
+        }
+        
+        public void ClearLog()
+        {
+            lock (_messages)
+            {
+                _messages.Clear();
+            }
         }
     }
 }

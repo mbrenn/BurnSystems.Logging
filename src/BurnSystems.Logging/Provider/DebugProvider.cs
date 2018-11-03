@@ -5,9 +5,15 @@ namespace BurnSystems.Logging.Provider
 {
     public class DebugProvider: ILogProvider
     {
+        private static object _syncObject = new object();
+
+
         public void LogMessage(LogMessage logMessage)
         {
-            Debug.WriteLine($"{DateTime.Now}: {logMessage}");
+            lock (_syncObject)
+            {
+                Debug.WriteLine($"{DateTime.Now}: {logMessage}");
+            }
         }
     }
 }

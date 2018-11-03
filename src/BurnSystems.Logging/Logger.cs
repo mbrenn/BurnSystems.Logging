@@ -31,9 +31,9 @@ namespace BurnSystems.Logging
         /// Logs the level
         /// </summary>
         /// <param name="logLevel">The loglevel to be logged</param>
-        /// <param name="category">Category of the</param>
         /// <param name="messageText">Message to be filtered</param>
-        public void Log(LogLevel logLevel, string category, string messageText)
+        /// <param name="category">Category of the</param>
+        public void Log(LogLevel logLevel, string messageText, string category)
         {
             var message = new LogMessage
             {
@@ -45,7 +45,7 @@ namespace BurnSystems.Logging
             Log(message);
         }
 
-        private void Log(LogMessage message)
+        public void Log(LogMessage message)
         {
             var logLevelDepth = (int) message.LogLevel;
             var threshold = (int) LogLevelThreshold;
@@ -56,7 +56,7 @@ namespace BurnSystems.Logging
                 return;
             }
 
-            // No go through each provider 
+            // Now go through each provider and verify the log messages
             foreach (var provider in _providers)
             {
                 var providerLogLevel = (int) provider.LogLevelThreshold;
@@ -67,7 +67,6 @@ namespace BurnSystems.Logging
 
                 provider.Provider.LogMessage(message);
             }
-
         }
 
         /// <summary>
@@ -84,6 +83,11 @@ namespace BurnSystems.Logging
             public LogLevel LogLevelThreshold { get; set; }
 
             public ILogProvider Provider { get; set; }
+        }
+
+        public void ClearProviders()
+        {
+            _providers.Clear();
         }
     }
 }
