@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BurnSystems.Logging
 {
-    public class Logger
+    public class Logger : ILogger
     {
         /// <summary>
         /// Stores the list of providers
@@ -25,24 +25,6 @@ namespace BurnSystems.Logging
         {
             var data = new ProviderData(provider,logLevelThreshold);
             _providers.Add(data);
-        }
-
-        /// <summary>
-        /// Logs the level
-        /// </summary>
-        /// <param name="logLevel">The loglevel to be logged</param>
-        /// <param name="messageText">Message to be filtered</param>
-        /// <param name="category">Category of the</param>
-        public void Log(LogLevel logLevel, string messageText, string category)
-        {
-            var message = new LogMessage
-            {
-                LogLevel = logLevel,
-                Category = category,
-                Message = messageText
-            };
-
-            Log(message);
         }
 
         public void Log(LogMessage message)

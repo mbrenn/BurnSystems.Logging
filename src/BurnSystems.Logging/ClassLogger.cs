@@ -10,30 +10,19 @@ namespace BurnSystems.Logging
         {
             _category = type.FullName;
         }
-        
-        public void Trace(string message)
-        {
-            TheLog.Trace(message, _category);
-        }
 
-        public void Info(string message)
+        public void Log (LogMessage message)
         {
-            TheLog.Info(message, _category);
-        }
+            if ( string.IsNullOrEmpty(message.Category))
+            {
+                message.Category = _category;
+            }
+            else
+            {
+                message.Category += $" {_category}";
+            }
 
-        public void Fatal(string message)
-        {
-            TheLog.Fatal(message, _category);
-        }
-
-        public void Warn(string message)
-        {
-            TheLog.Warn(message, _category);
-        }
-
-        public void Error(string message)
-        {
-            TheLog.Error( message, _category);
+            TheLog.Log(message);
         }
     }
 }
