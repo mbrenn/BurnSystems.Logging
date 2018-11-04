@@ -1,5 +1,7 @@
 # BurnSystems.Logging
 
+PDF on https://github.com/mbrenn/BurnSystems.Logging/blob/master/docs/BurnSystems.Logging.pdf
+
 ## Purpose
 
 The assembly BurnSystems.Logging introduces a lightweight logging tool supporting console output, debug output and a very simple internal storage for log messages.
