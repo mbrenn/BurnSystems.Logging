@@ -58,7 +58,7 @@ namespace BurnSystems.Logging
             Log(LogLevel.Error, message, category);
         }
 
-        public static void AddProvider(ILogProvider logProvider, LogLevel logLevelThreshold)
+        public static void AddProvider(ILogProvider logProvider, LogLevel logLevelThreshold = LogLevel.Info)
         {
             Singleton.AddProvider(logProvider, logLevelThreshold);
         }

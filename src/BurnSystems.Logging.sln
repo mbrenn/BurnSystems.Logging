@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurnSystems.Logging", "BurnSystems.Logging\BurnSystems.Logging.csproj", "{F9F79182-4F28-4BD0-96B7-8ED18C83F6C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSystems.Logging.Tests", "BurnSystems.Logging.Tests\BurnSystems.Logging.Tests.csproj", "{6967D617-BA60-408C-B623-28796FBDD166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurnSystems.Logging.Tests", "BurnSystems.Logging.Tests\BurnSystems.Logging.Tests.csproj", "{6967D617-BA60-408C-B623-28796FBDD166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSystems.Logging.Console", "BurnSystems.Logging.Console\BurnSystems.Logging.Console.csproj", "{A3AD9686-B391-46DE-890F-F72A31D5D338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6967D617-BA60-408C-B623-28796FBDD166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6967D617-BA60-408C-B623-28796FBDD166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6967D617-BA60-408C-B623-28796FBDD166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AD9686-B391-46DE-890F-F72A31D5D338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AD9686-B391-46DE-890F-F72A31D5D338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AD9686-B391-46DE-890F-F72A31D5D338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AD9686-B391-46DE-890F-F72A31D5D338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
