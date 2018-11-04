@@ -10,19 +10,16 @@ namespace BurnSystems.Logging.Provider
         /// </summary>
         public static InMemoryDatabaseProvider TheOne { get; }= new InMemoryDatabaseProvider();
         
-        private List<InMemoryLogMessage> _messages = 
-            new List<InMemoryLogMessage>();
-
         /// <summary>
         /// Gets the messages that are received
         /// </summary>
-        public List<InMemoryLogMessage> Messages => _messages;
+        public List<InMemoryLogMessage> Messages { get; }= new List<InMemoryLogMessage>();
 
         public void LogMessage(LogMessage logMessage)
         {
-            lock (_messages)
+            lock (Messages)
             {
-                _messages.Add(
+                Messages.Add(
                     new InMemoryLogMessage()
                     {
                         LogMessage = logMessage,
@@ -33,9 +30,9 @@ namespace BurnSystems.Logging.Provider
         
         public void ClearLog()
         {
-            lock (_messages)
+            lock (Messages)
             {
-                _messages.Clear();
+                Messages.Clear();
             }
         }
     }

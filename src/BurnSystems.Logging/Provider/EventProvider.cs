@@ -35,7 +35,7 @@ namespace BurnSystems.Logging.Provider
         /// <summary>
         /// Gets the message being sent out
         /// </summary>
-        public LogMessage LogMessage {get;       }
+        public LogMessage LogMessage { get; }
 
         public LogEventArgs(LogMessage logMessage)
         {

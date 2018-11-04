@@ -37,6 +37,11 @@ namespace BurnSystems.Logging
             logger.Log(LogLevel.Trace, message, category);
         }
 
+        public static void Debug(this ILogger logger, string message, string category = null)
+        {
+            logger.Log(LogLevel.Debug, message, category);
+        }
+
         public static void Info(this ILogger logger, string message, string category = null)
         {
             logger.Log(LogLevel.Info, message, category);
