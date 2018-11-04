@@ -5,12 +5,11 @@ namespace BurnSystems.Logging.Provider
 {
     public class DebugProvider: ILogProvider
     {
-        private static object _syncObject = new object();
-
-
+        private static readonly object SyncObject = new object();
+        
         public void LogMessage(LogMessage logMessage)
         {
-            lock (_syncObject)
+            lock (SyncObject)
             {
                 Debug.WriteLine($"{DateTime.Now}: {logMessage}");
             }

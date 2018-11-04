@@ -55,7 +55,7 @@ namespace BurnSystems.Logging
 
         public static void Debug(string message, string category = null)
         {
-            Log(LogLevel.Error, message, category);
+            Log(LogLevel.Debug, message, category);
         }
 
         public static void AddProvider(ILogProvider logProvider, LogLevel logLevelThreshold = LogLevel.Info)

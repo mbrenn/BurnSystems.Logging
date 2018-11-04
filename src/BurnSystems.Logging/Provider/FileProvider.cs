@@ -7,7 +7,7 @@ namespace BurnSystems.Logging.Provider
     {
         private readonly string _filePath;
         private readonly bool _createNew;
-        private object _syncObject = new object();
+        private readonly object _syncObject = new object();
 
         private StreamWriter _file;
 
