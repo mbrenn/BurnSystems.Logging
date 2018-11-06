@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 
 namespace BurnSystems.Logging
 {
@@ -8,6 +9,19 @@ namespace BurnSystems.Logging
         /// Gets the singleton
         /// </summary>
         internal static Logger Singleton { get; } = new Logger();
+
+        /// <summary>
+        /// Gets or sets the time when the first logger was created
+        /// </summary>
+        internal static DateTime TimeCreated { get; }
+
+        /// <summary>
+        /// Initializes the log to store the time when the process was created
+        /// </summary>
+        static TheLog()
+        {
+            TimeCreated = DateTime.Now;
+        }
 
         /// <summary>
         /// Logs the message into the singleton
