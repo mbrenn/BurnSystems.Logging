@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 namespace BurnSystems.Logging.Provider
@@ -30,7 +31,9 @@ namespace BurnSystems.Logging.Provider
                     _file = new StreamWriter(_filePath, !_createNew);
                 }
 
-                _file.WriteLine($"{DateTime.Now};{logMessage.LogLevel};{logMessage.Category};{logMessage.Message}");
+                var timePassed = DateTime.Now - TheLog.TimeCreated;
+                _file.WriteLine(
+                    $"{DateTime.Now};{timePassed.TotalSeconds.ToString("n3", CultureInfo.InvariantCulture)};{logMessage.LogLevel};{logMessage.Category};{logMessage.Message}");
                 _file.Flush();
             }
         }
